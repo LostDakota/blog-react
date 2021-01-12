@@ -16,11 +16,6 @@ body {
   color: #333;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 #root {
   display: grid;
   min-height: 100vh;
@@ -58,11 +53,6 @@ h2 {
   color: #3D3D3D;
 }
 
-.profile-image {
-  margin: 0 1rem 1rem 0;
-  float: left;
-}
-
 .full-width-card {
   padding: 1rem;
   border-radius: 3px;
@@ -97,4 +87,8 @@ p {
 .tags {
   display: block;
   margin-top: 1rem;
+}
+
+.darken {
+  background-color: #333;;
 }

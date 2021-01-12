@@ -9,6 +9,11 @@ const FullWidth = styled.div`
     grid-column: 1 / -1;
 `;
 
+const BioImage = styled.img`
+    margin: 0 1rem 1rem 0;
+    float: left;
+`;
+
 class About extends Component {
     render() {
         return (
@@ -17,7 +22,7 @@ class About extends Component {
                     <FullWidth>
                         <div>
                             <h2>About me</h2>
-                            <img alt="Drew Mika" className="profile-image" src="https://mika.house/drew.webp" width="200" height="200" />
+                            <BioImage alt="Drew Mika" src="https://mika.house/drew.webp" width="200" height="200" />
 
                             {/* <p><a href="/assets/resume" target="_blank" style="margin-bottom: 1rem; color: #6ea9a9;"><i class="fas fa-file" style="margin-right: .5rem;"></i>My Resume</a></p> */}
                             <p>My name is Drew Mika. I hail from a suburb of Youngstown, Ohio.</p>

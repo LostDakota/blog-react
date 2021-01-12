@@ -38,32 +38,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-
-  <script>
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    document.addEventListener('DOMContentLoaded', function () {
-      if (prefersDarkScheme && localStorage.getItem('mode') !== 'light') {
-        localStorage.setItem('mode', 'dark');
-        document.body.classList.add('dark');
-      }
-    });
-
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-
-    function flipTheSwitch() {
-      const body = document.body;
-      const stored = localStorage.getItem('mode');
-      if (stored === 'dark') {
-        document.body.classList.remove('dark');
-        localStorage.setItem('mode', 'light');
-      } else {
-        document.body.classList.add('dark');
-        localStorage.setItem('mode', 'dark');
-      }
-    }
-  </script>
 </body>
 
 </html>
