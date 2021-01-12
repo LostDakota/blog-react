@@ -8,6 +8,11 @@ const StyledDefaultCard = styled.div`
     padding: .5rem;
     text-align: center;
     margin-bottom: 10px;
+    transition: .5s ease-in-out;
+
+    &:hover {
+        box-shadow: 1px 8px 10px rgba(0, 0, 0, .1);
+    }
 `;
 
 class DefaultCard extends Component {
