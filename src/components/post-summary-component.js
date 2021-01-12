@@ -26,6 +26,15 @@ const PostCard = props => {
         <span className="t-small t-muted">{props.createdAt}</span><br />
         <span>{props.content}</span>
         <a href={`/post/${props.slug}`}> ...read more</a>
+        <div className="tags">
+            {props.tags.map((tag, index) => {
+                return (
+                    <a key={index} href={`/blog/${tag}`}>
+                        <div className="tag"><img src="/icons/tag.svg" alt="tag" width="10" height="10" /> {tag}</div>
+                    </a>
+                )
+            })}
+        </div>
     </StyledCard>
 }
 

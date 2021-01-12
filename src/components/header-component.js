@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import styled from 'styled-components';
 import {
     BrowserRouter as Router,
@@ -7,11 +7,11 @@ import {
     Route
 } from "react-router-dom";
 
-import Home from './home-component';
-import Blog from './blog-component';
-import About from './about-component';
-import Post from './post-component';
-import Contact from './contact-component';
+const Home = lazy(() => import('./home-component'));
+const Blog = lazy(() => import('./blog-component'));
+const About = lazy(() => import('./about-component'));
+const Post = lazy(() => import('./post-component'));
+const Contact = lazy(() => import('./contact-component'));
 
 const StyledHeader = styled.header`
     width: 100%;
@@ -58,13 +58,15 @@ class Header extends Component {
                         <StyledNavLink to="/contact">Contact</StyledNavLink>
                     </div>
                 </StyledHeader>
-                <Switch>
-                    <Route exact path="/" component={Home}></Route>
-                    <Route path="/blog" component={Blog}></Route>
-                    <Route path="/about" component={About}></Route>
-                    <Route path="/post/:slug" component={Post}></Route>
-                    <Route path="/contact" component={Contact}></Route>
-                </Switch>
+                <Suspense fallback={<div></div>}>
+                    <Switch>
+                        <Route exact path="/" component={Home}></Route>
+                        <Route path="/blog/:tag?" component={Blog}></Route>
+                        <Route path="/about" component={About}></Route>
+                        <Route path="/post/:slug" component={Post}></Route>
+                        <Route path="/contact" component={Contact}></Route>
+                    </Switch>
+                </Suspense>
             </Router>
         )
     }

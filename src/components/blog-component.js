@@ -20,7 +20,8 @@ export default class Blog extends Component {
                             content={post.content}
                             title={post.title}
                             slug={post.slug}
-                            createdAt={post.createdAt}></PostCard>);
+                            createdAt={post.createdAt}
+                            tags={post.tags}></PostCard>);
                     })}
                 </div>
             </div>
@@ -28,11 +29,22 @@ export default class Blog extends Component {
     }
 
     componentDidMount() {
-        fetch('https://api.mika.house/posts')
+        let base = 'https://api.mika.house/';
+        const { match: { params } } = this.props;
+
+        if (params.tag) {
+            base += `tags/${params.tag}`;
+            document.title = `Posts tagged with ${params.tag}`;
+        } else {
+            base += 'posts';
+            document.title = 'Mika House Blog';
+        }
+
+        fetch(base)
             .then(res => res.json())
             .then(data => {
                 data.forEach(post => post = NormalizePostSummary(post));
                 this.setState({ posts: data });
-            });
+            });        
     }
 }

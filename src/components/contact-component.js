@@ -13,4 +13,8 @@ export default class Contact extends Component {
             </div>
         )
     }
+
+    componentDidMount() {
+        document.title = 'Contact Me';
+    }
 }

@@ -86,10 +86,15 @@ p {
 
 .tag {
   font-size: .75rem;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 20px;
   background-color: #235e71;
   color: #add8e6;
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: .5rem;
+}
+
+.tags {
+  display: block;
+  margin-top: 1rem;
 }

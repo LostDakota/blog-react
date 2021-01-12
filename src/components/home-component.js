@@ -22,7 +22,8 @@ export default class Home extends Component {
                             content={post.content}
                             title={post.title}
                             slug={post.slug}
-                            createdAt={post.createdAt}></PostCard>
+                            createdAt={post.createdAt}
+                            tags={post.tags}></PostCard>
                     ))}
                 </div>
             </div>
@@ -38,5 +39,7 @@ export default class Home extends Component {
                 });
                 this.setState({ posts: data });
             });
+
+        document.title = 'Mika House Web Development';
     }
 }
