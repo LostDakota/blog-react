@@ -51,8 +51,45 @@ h2 {
 
 .t-small {
   font-size: .75rem;
+  margin: .5rem 0;
 }
 
 .t-muted {
   color: #3D3D3D;
+}
+
+.profile-image {
+  margin: 0 1rem 1rem 0;
+  float: left;
+}
+
+.full-width-card {
+  padding: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+  grid-column: 1 / -1;
+  background-color: white;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre {
+  overflow-x: scroll;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-size: .75rem;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: #235e71;
+  color: #add8e6;
+  display: inline-block;
+  margin-right: 1rem;
 }

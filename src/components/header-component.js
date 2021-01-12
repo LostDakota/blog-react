@@ -10,6 +10,8 @@ import {
 import Home from './home-component';
 import Blog from './blog-component';
 import About from './about-component';
+import Post from './post-component';
+import Contact from './contact-component';
 
 const StyledHeader = styled.header`
     width: 100%;
@@ -60,6 +62,8 @@ class Header extends Component {
                     <Route exact path="/" component={Home}></Route>
                     <Route path="/blog" component={Blog}></Route>
                     <Route path="/about" component={About}></Route>
+                    <Route path="/post/:slug" component={Post}></Route>
+                    <Route path="/contact" component={Contact}></Route>
                 </Switch>
             </Router>
         )

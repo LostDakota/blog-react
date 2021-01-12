@@ -14,15 +14,17 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <DefaultCard title="Welcome to Mika House Web Development"
-                    copy="This website is dedicated to web and application development, technology and other geeky stuff that all your cool friends (or spouse, in my case) will roll their eyes about."></DefaultCard>
-                {this.state.posts.map((post, index) => (
-                    <PostCard key={index}
-                        content={post.content}
-                        title={post.title}
-                        slug={post.slug}
-                        createdAt={post.createdAt}></PostCard>
-                ))}
+                <div className="container">
+                    <DefaultCard title="Welcome to Mika House Web Development"
+                        copy="This website is dedicated to web and application development, technology and other geeky stuff that all your cool friends (or spouse, in my case) will roll their eyes about."></DefaultCard>
+                    {this.state.posts.map((post, index) => (
+                        <PostCard key={index}
+                            content={post.content}
+                            title={post.title}
+                            slug={post.slug}
+                            createdAt={post.createdAt}></PostCard>
+                    ))}
+                </div>
             </div>
         )
     }
@@ -32,7 +34,7 @@ export default class Home extends Component {
             .then(res => res.json())
             .then(data => {
                 data.forEach(i => {
-                    i = NormalizePostSummary(i);
+                    i = NormalizePostSummary(i)
                 });
                 this.setState({ posts: data });
             });

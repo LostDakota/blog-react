@@ -22,6 +22,11 @@ const StyledSocial = styled.div`
 const StyledSocialIcons = styled.div`
     margin: 0 2rem;
     display: inline-block;
+    transition: transform .4s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 `;
 
 const year = new Date().getFullYear();
@@ -33,13 +38,19 @@ class Footer extends Component {
                 <div className="container">
                     <StyledSocial>
                         <StyledSocialIcons>
-                            <img alt="Github" src="/icons/github.svg" width="30" height="35"></img>
+                            <a href="https://github.com/LostDakota">
+                                <img alt="Github" src="/icons/github.svg" width="30" height="35"></img>
+                            </a>
                         </StyledSocialIcons>
                         <StyledSocialIcons>
-                            <img alt="Twitter" src="/icons/twitter.svg" width="30" height="35"></img>
+                            <a href="https://twitter.com/DrewMika">
+                                <img alt="Twitter" src="/icons/twitter.svg" width="30" height="35"></img>
+                            </a>
                         </StyledSocialIcons>
                         <StyledSocialIcons>
-                            <img alt="LinkedIn" src="/icons/linkedin.svg" width="30" height="35"></img>
+                            <a href="https://www.linkedin.com/in/drewmika/">
+                                <img alt="LinkedIn" src="/icons/linkedin.svg" width="30" height="35"></img>
+                            </a>
                         </StyledSocialIcons >
                     </StyledSocial>
                     <StyledCopy>

@@ -22,7 +22,7 @@ const StyledCard = styled.div`
 
 const PostCard = props => {
     return <StyledCard>
-        <a href={`/posts/${props.slug}`}>{props.title}</a><br />
+        <a href={`/post/${props.slug}`}>{props.title}</a><br />
         <span className="t-small t-muted">{props.createdAt}</span><br />
         <span>{props.content}</span>
         <a href={`/post/${props.slug}`}> ...read more</a>

@@ -14,13 +14,15 @@ export default class Blog extends Component {
     render() {
         return (
             <div>
-                {this.state.posts.map((post, index) => {
-                    return(<PostCard key={index}
-                        content={post.content}
-                        title={post.title}
-                        slug={post.slug}
-                        createdAt={post.createdAt}></PostCard>);
-                })}
+                <div className="container">
+                    {this.state.posts.map((post, index) => {
+                        return (<PostCard key={index}
+                            content={post.content}
+                            title={post.title}
+                            slug={post.slug}
+                            createdAt={post.createdAt}></PostCard>);
+                    })}
+                </div>
             </div>
         )
     }
