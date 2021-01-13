@@ -60,6 +60,12 @@ class Footer extends Component {
             </StyledFooter>
         );
     };
+
+    componentDidMount() {
+        const script = document.createElement('script');
+        script.src = '/global-scripts.js'
+        document.body.appendChild(script);
+    }
 }
 
 export default Footer;

@@ -26,7 +26,7 @@ export default class Post extends Component {
         return (
             <StyledPost>
                 <div className="container">
-                    <div className="full-width-card">
+                    <div className="full-width-card card">
                         <h2>{this.state.post.title}</h2>
                         <div className="t-small t-muted">{this.state.post.createdAt}</div>
                         <div dangerouslySetInnerHTML={{ __html: this.state.post.raw }}></div>
@@ -50,5 +50,18 @@ export default class Post extends Component {
                 document.title = data.title;
                 this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
             });
+
+        const style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = '/hljs.css';
+        document.body.appendChild(style);
+
+        const script = document.createElement('script');
+        script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js';
+        document.body.appendChild(script);
+
+        const init = document.createElement('script');
+        init.innerText = `(function() { document.querySelectorAll('pre code').forEach((block) => {hljs.highlightBlock(block);}); })();`;
+        document.body.appendChild(init);
     }
 }

@@ -18,7 +18,7 @@ const StyledDefaultCard = styled.div`
 class DefaultCard extends Component {
     render() {
         return (
-            <StyledDefaultCard>
+            <StyledDefaultCard className="card">
                 <h2>{this.props.title}</h2>
                 <p>{this.props.copy}</p>
             </StyledDefaultCard>

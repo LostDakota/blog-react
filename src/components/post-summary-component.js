@@ -28,7 +28,7 @@ const StyledCard = styled.div`
 `;
 
 const PostCard = props => {
-    return <StyledCard>
+    return <StyledCard className="card">
         <a href={`/post/${props.slug}`}>{props.title}</a><br />
         <span className="t-small t-muted">{props.createdAt}</span><br />
         <span>{props.content}</span>

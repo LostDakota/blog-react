@@ -89,6 +89,19 @@ p {
   margin-top: 1rem;
 }
 
-.darken {
+.dark {
   background-color: #333;;
+}
+
+.dark .card {
+  background-color: #555;
+  color: #FAFAFA;
+}
+
+.dark h2, .dark a {
+  color: white;
+}
+
+.dark .t-muted {
+  color: #f3f3f3;
 }

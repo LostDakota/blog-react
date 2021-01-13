@@ -5,7 +5,7 @@ export default class Contact extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className="full-width-card">
+                    <div className="full-width-card card">
                         <h2>Contact Me</h2>
                         <p>You can contact me at <a href="mailto:drew@mika.house">drew@mika.house</a> or any of the social links below.</p>
                     </div>

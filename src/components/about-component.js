@@ -19,7 +19,7 @@ class About extends Component {
         return (
             <div>
                 <div className="container">
-                    <FullWidth>
+                    <FullWidth className="card">
                         <div>
                             <h2>About me</h2>
                             <BioImage alt="Drew Mika" src="https://mika.house/drew.webp" width="200" height="200" />
