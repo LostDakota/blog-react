@@ -4,12 +4,6 @@ import NormalizePostSummary from '../helpers/normalization';
 
 const StyledPost = styled.div`
     margin-bottom: 1rem;
-    
-    & pre {
-        padding: .5rem;
-        background-color: #333;
-        color: white;
-    }
 `;
 
 export default class Post extends Component {
@@ -59,9 +53,5 @@ export default class Post extends Component {
         const script = document.createElement('script');
         script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js';
         document.body.appendChild(script);
-
-        const init = document.createElement('script');
-        init.innerText = `(function() { document.querySelectorAll('pre code').forEach((block) => {hljs.highlightBlock(block);}); })();`;
-        document.body.appendChild(init);
     }
 }

@@ -81,7 +81,7 @@ p {
   background-color: #235e71;
   color: #add8e6;
   display: inline-block;
-  margin-right: .5rem;
+  margin: 0 .5rem .5rem 0;
 }
 
 .tags {

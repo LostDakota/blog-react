@@ -15,7 +15,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     navigator.serviceWorker.register('/service-worker.js');
 }
 
-(function(){
+(function () {
     let lightbulb = document.createElement('img');
     lightbulb.src = '/icons/lightbulb.svg';
     lightbulb.width = "30";
@@ -34,4 +34,8 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         localStorage.setItem('mode', 'dark');
         document.body.classList.add('dark');
     }
+
+    const init = document.createElement('script');
+    init.innerText = `(function() { document.querySelectorAll('pre code').forEach((block) => {hljs.highlightBlock(block);}); })();`;
+    document.body.appendChild(init);
 })();
