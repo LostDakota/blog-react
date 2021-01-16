@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import DefaultCard from './default-card-component';
-import PostCard from './post-summary-component';
+import React, { Component, lazy } from 'react';
 import NormalizePostSummary from '../helpers/normalization';
+
+const DefaultCard = lazy(() => import('./default-card-component'));
+const PostCard = lazy(() => import('./post-summary-component'));
 
 export default class Home extends Component {
     constructor(props) {
