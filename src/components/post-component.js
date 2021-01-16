@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NormalizePostSummary from '../helpers/normalization';
+import '../hljs.css';
+
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
+
+hljs.registerLanguage('javascript', javascript);
 
 const StyledPost = styled.div`
     margin-bottom: 1rem;
 `;
-
-const Preload = () => {
-    const style = document.createElement('link');
-    style.rel = 'preload';
-    style.href = '/hljs.css';
-    document.head.appendChild(style);
-
-    const script = document.createElement('script');
-    script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js';
-    document.body.appendChild(script);
-}
 
 export default class Post extends Component {
     constructor(props) {
@@ -48,15 +43,20 @@ export default class Post extends Component {
 
     componentDidMount() {
         const { match: { params } } = this.props;
-        Preload();
 
         fetch(`https://api.mika.house/post/${params.slug}`)
             .then(res => res.json())
             .then(data => {
                 document.title = data.title;
                 this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
+                this.highlight();
             });
     }
 
+    componentDidUpdate() {
+        console.log('here');
+        this.highlight();
+    }
 
+    highlight = () => document.querySelectorAll('pre').forEach(node => hljs.highlightBlock(node));
 }
