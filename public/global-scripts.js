@@ -24,6 +24,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     lightbulb.style.bottom = '1rem';
     lightbulb.style.right = '1rem';
     lightbulb.style.filter = 'opacity(.5)';
+    lightbulb.alt = 'Toggle Dark Mode';
     lightbulb.id = 'dark-mode';
 
     document.body.appendChild(lightbulb);
