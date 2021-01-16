@@ -6,6 +6,17 @@ const StyledPost = styled.div`
     margin-bottom: 1rem;
 `;
 
+const Preload = () => {
+    const style = document.createElement('link');
+    style.rel = 'preload';
+    style.href = '/hljs.css';
+    document.head.appendChild(style);
+
+    const script = document.createElement('script');
+    script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js';
+    document.body.appendChild(script);
+}
+
 export default class Post extends Component {
     constructor(props) {
         super(props);
@@ -37,6 +48,7 @@ export default class Post extends Component {
 
     componentDidMount() {
         const { match: { params } } = this.props;
+        Preload();
 
         fetch(`https://api.mika.house/post/${params.slug}`)
             .then(res => res.json())
@@ -44,14 +56,7 @@ export default class Post extends Component {
                 document.title = data.title;
                 this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
             });
-
-        const style = document.createElement('link');
-        style.rel = 'stylesheet';
-        style.href = '/hljs.css';
-        document.body.appendChild(style);
-
-        const script = document.createElement('script');
-        script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js';
-        document.body.appendChild(script);
     }
+
+
 }

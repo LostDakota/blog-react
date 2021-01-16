@@ -29,14 +29,20 @@ export default class Blog extends Component {
     }
 
     componentDidMount() {
-        let base = 'https://api.mika.house/';
+        let base = 'https://api.mika.house';
+
+        const script = document.createElement('link');
+        script.rel = 'preconnect';
+        script.src = base;
+        document.head.appendChild(script);
+
         const { match: { params } } = this.props;
 
         if (params.tag) {
-            base += `tags/${params.tag}`;
+            base += `/tags/${params.tag}`;
             document.title = `Posts tagged with ${params.tag}`;
         } else {
-            base += 'posts';
+            base += '/posts';
             document.title = 'Mika House Blog';
         }
 

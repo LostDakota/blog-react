@@ -35,7 +35,12 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         document.body.classList.add('dark');
     }
 
-    const init = document.createElement('script');
-    init.innerText = `(function() { document.querySelectorAll('pre code').forEach((block) => {hljs.highlightBlock(block);}); })();`;
-    document.body.appendChild(init);
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log(':fire 1');
+        setTimeout(() => {
+            const init = document.createElement('script');
+            init.innerText = `(function() { document.querySelectorAll('pre code').forEach((block) => {hljs.highlightBlock(block);}); })();`;
+            document.body.appendChild(init);
+        }, 600);
+    });
 })();

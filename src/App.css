@@ -105,3 +105,7 @@ p {
 .dark .t-muted {
   color: #f3f3f3;
 }
+
+.dark a:hover {
+  color: #add8e6;
+}
