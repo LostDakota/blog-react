@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import PostCard from './post-summary-component';
+import React, { Component, lazy } from 'react';
 import NormalizePostSummary from '../helpers/normalization';
+
+const PostCard = lazy(() => import('./post-summary-component'));
 
 export default class Blog extends Component {
     constructor(props) {
