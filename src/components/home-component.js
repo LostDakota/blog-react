@@ -31,7 +31,7 @@ export default class Home extends Component {
         )
     }
 
-    componentDidMount() {
+    componentWillMount() {
         fetch('https://api.mika.house/latest/3')
             .then(res => res.json())
             .then(data => {

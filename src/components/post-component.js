@@ -45,7 +45,7 @@ export default class Post extends Component {
         )
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const { match: { params } } = this.props;
 
         fetch(`https://api.mika.house/post/${params.slug}`)
@@ -53,7 +53,6 @@ export default class Post extends Component {
             .then(data => {
                 document.title = data.title;
                 this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
-                this.highlight();
             });
     }
 

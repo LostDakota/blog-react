@@ -29,7 +29,7 @@ export default class Blog extends Component {
         )
     }
 
-    componentDidMount() {
+    componentWillMount() {
         let base = 'https://api.mika.house';
 
         const script = document.createElement('link');
