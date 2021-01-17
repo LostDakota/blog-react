@@ -16,9 +16,6 @@ export default class Contact extends Component {
 
     componentDidMount() {
         document.title = 'Contact Me';
-    }
-
-    componentDidUpdate() {
         setTimeout(() => {
             [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
         }, 300);
