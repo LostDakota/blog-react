@@ -57,12 +57,15 @@ export default class Post extends Component {
     }
 
     componentDidMount() {
-        console.log('here');
-        this.highlight();
+        console.log('here');        
 
         setTimeout(() => {
             [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
         }, 300);
+    }
+
+    componentDidUpdate() {
+        this.highlight();
     }
 
     highlight = () => document.querySelectorAll('pre').forEach(node => hljs.highlightBlock(node));
