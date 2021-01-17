@@ -64,15 +64,17 @@ class Footer extends Component {
                         &copy; {year} Drew Mika
                     </StyledCopy>
                 </div>
-                <svg width="40" height="40" id="dark-mode">
-                    <use href="/icons/sprite.svg#lightbulb"></use>
-                </svg>
+                <div style={{ position: 'relative' }}>
+                    <svg width="40" height="40" id="dark-mode">
+                        <use href="/icons/sprite.svg#lightbulb"></use>
+                    </svg>
+                </div>
             </StyledFooter>
         );
     };
 
     componentDidMount() {
-        Global();        
+        Global();
     }
 }
 

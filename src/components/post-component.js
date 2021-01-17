@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NormalizePostSummary from '../helpers/normalization';
-import '../hljs.css';
 
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -65,6 +64,7 @@ export default class Post extends Component {
     }
 
     componentDidUpdate() {
+        import(`highlight.js/styles/a11y-${localStorage.getItem('mode')}.css`);
         this.highlight();
     }
 
