@@ -55,7 +55,7 @@ export default class Blog extends Component {
             });        
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         setTimeout(() => {
             [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
         }, 300);

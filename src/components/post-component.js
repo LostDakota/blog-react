@@ -56,7 +56,7 @@ export default class Post extends Component {
             });
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         console.log('here');
         this.highlight();
 

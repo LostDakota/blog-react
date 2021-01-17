@@ -44,7 +44,7 @@ export default class Home extends Component {
         document.title = 'Mika House Web Development';
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         setTimeout(() => {
             [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
         }, 300);
