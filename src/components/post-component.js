@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import styled from 'styled-components';
 import NormalizePostSummary from '../helpers/normalization';
 import '../hljs.css';
 
-import hljs from 'highlight.js';
-import javascript from 'highlight.js/lib/languages/javascript';
-
-hljs.registerLanguage('javascript', javascript);
+const hljs = lazy(() => import('highlight.js/lib/highlight'));
+const javascript = lazy(() => import('highlight.js/lib/languages/javascript'));
 
 const StyledPost = styled.div`
     margin-bottom: 1rem;
@@ -20,6 +18,8 @@ export default class Post extends Component {
             post: {},
             tags: []
         }
+
+        hljs.registerLanguage('javascript', javascript);
     }
 
     render() {
