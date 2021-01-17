@@ -37,7 +37,7 @@ const PostCard = props => {
             {props.tags.map((tag, index) => {
                 return (
                     <a key={index} href={`/blog/${tag}`}>
-                        <div className="tag"><img src="/icons/tag.svg" alt="tag" width="10" height="10" /> {tag}</div>
+                        <div className="tag"><svg alt="tag" width="10" height="10"><use href="/icons/sprite.svg#tag"></use></svg> {tag}</div>
                     </a>
                 )
             })}

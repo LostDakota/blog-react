@@ -32,7 +32,11 @@ export default class Post extends Component {
                         <div dangerouslySetInnerHTML={{ __html: this.state.post.raw }}></div>
                         {this.state.tags.map((tag, index) => {
                             return (<a key={index} href={`/blog/${tag}`}>
-                                <div key={index} className="tag"><img alt="Tag" src="/icons/tag.svg" width="10" height="10" /> {tag}</div>
+                                    <div key={index} className="tag">                                        
+                                        <svg alt="Tag" width="10" height="10">
+                                            <use href="/icons/sprite.svg#tag"></use>
+                                        </svg> {tag}
+                                    </div>
                             </a>);
                         })}
                     </div>
