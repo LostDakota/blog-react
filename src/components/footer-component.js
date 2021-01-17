@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Global from '../helpers/global-scripts';
 
 const StyledFooter = styled.footer`
     background-color: #235e71;
@@ -38,33 +39,40 @@ class Footer extends Component {
                 <div className="container">
                     <StyledSocial>
                         <StyledSocialIcons>
-                            <a href="https://github.com/LostDakota">
-                                <img alt="Github" src="/icons/github.svg" width="30" height="35"></img>
+                            <a title="Github" href="https://github.com/LostDakota">
+                                <svg width="30" height="35">
+                                    <use href="/icons/sprite.svg#github"></use>
+                                </svg>
                             </a>
                         </StyledSocialIcons>
                         <StyledSocialIcons>
-                            <a href="https://twitter.com/DrewMika">
-                                <img alt="Twitter" src="/icons/twitter.svg" width="30" height="35"></img>
+                            <a title="twitter" href="https://twitter.com/DrewMika">
+                                <svg width="30" height="35">
+                                    <use href="/icons/sprite.svg#twitter"></use>
+                                </svg>
                             </a>
                         </StyledSocialIcons>
                         <StyledSocialIcons>
-                            <a href="https://www.linkedin.com/in/drewmika/">
-                                <img alt="LinkedIn" src="/icons/linkedin.svg" width="30" height="35"></img>
+                            <a title="LinkedIn" href="https://www.linkedin.com/in/drewmika/">
+                                <svg width="30" height="35">
+                                    <use href="/icons/sprite.svg#linkedin"></use>
+                                </svg>
                             </a>
-                        </StyledSocialIcons >
+                        </StyledSocialIcons>
                     </StyledSocial>
                     <StyledCopy>
                         &copy; {year} Drew Mika
-                </StyledCopy>
+                    </StyledCopy>
                 </div>
+                <svg width="40" height="40" id="dark-mode">
+                    <use href="/icons/sprite.svg#lightbulb"></use>
+                </svg>
             </StyledFooter>
         );
     };
 
     componentDidMount() {
-        const script = document.createElement('script');
-        script.src = '/global-scripts.js'
-        document.body.appendChild(script);
+        Global();
     }
 }
 

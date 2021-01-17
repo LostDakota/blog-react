@@ -110,3 +110,10 @@ p {
 .dark a:hover {
   color: #add8e6;
 }
+
+#dark-mode {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  filter: opacity(.5);
+}
