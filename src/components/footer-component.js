@@ -72,7 +72,7 @@ class Footer extends Component {
     };
 
     componentDidMount() {
-        Global();
+        Global();        
     }
 }
 

@@ -9,6 +9,8 @@ const StyledCard = styled.div`
     grid-column: 1 / -1;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
     transition: .5s ease-in-out;
+    min-height: 256px;
+    opacity: 0;
 
     &:hover {
         box-shadow: 1px 8px 10px rgba(0, 0, 0, 0.1);

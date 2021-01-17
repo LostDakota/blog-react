@@ -84,6 +84,12 @@ class About extends Component {
     componentDidMount() {
         document.title = 'About';
     }
+
+    componentDidUpdate() {
+        setTimeout(() => {
+            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
+        }, 300);
+    }
 }
 
 export default About;

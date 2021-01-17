@@ -54,4 +54,10 @@ export default class Blog extends Component {
                 this.setState({ posts: data });
             });        
     }
+
+    componentDidUpdate() {
+        setTimeout(() => {
+            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
+        }, 300);
+    }
 }
