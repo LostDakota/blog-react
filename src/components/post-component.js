@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NormalizePostSummary from '../helpers/normalization';
+import ShowCards from '../helpers/global-scripts';
 
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -44,7 +45,7 @@ export default class Post extends Component {
         )
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const { match: { params } } = this.props;
 
         fetch(`https://api.mika.house/post/${params.slug}`)
@@ -52,15 +53,8 @@ export default class Post extends Component {
             .then(data => {
                 document.title = data.title;
                 this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
+                ShowCards();
             });
-    }
-
-    componentDidMount() {
-        console.log('here');        
-
-        setTimeout(() => {
-            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
-        }, 300);
     }
 
     componentDidUpdate() {

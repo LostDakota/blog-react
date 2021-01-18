@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ShowCards from '../helpers/show-cards';
 
 export default class Contact extends Component {
     render() {
@@ -16,8 +17,6 @@ export default class Contact extends Component {
 
     componentDidMount() {
         document.title = 'Contact Me';
-        setTimeout(() => {
-            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
-        }, 300);
+        ShowCards();
     }
 }

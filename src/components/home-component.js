@@ -1,5 +1,6 @@
 import React, { Component, lazy } from 'react';
 import NormalizePostSummary from '../helpers/normalization';
+import ShowCards from '../helpers/show-cards';
 
 const DefaultCard = lazy(() => import('./default-card-component'));
 const PostCard = lazy(() => import('./post-summary-component'));
@@ -17,7 +18,7 @@ export default class Home extends Component {
             <div>
                 <div className="container">
                     <DefaultCard title="Welcome to Mika House Web Development"
-                        copy="This website is dedicated to web and application development, technology and other geeky stuff that all your cool friends (or spouse, in my case) will roll their eyes about."></DefaultCard>
+                        copy="This website is dedicated to web and application development, technology and other geeky stuff that all your cool friends will roll their eyes about."></DefaultCard>
                     {this.state.posts.map((post, index) => (
                         <PostCard key={index}
                             content={post.content}
@@ -31,7 +32,7 @@ export default class Home extends Component {
         )
     }
 
-    componentWillMount() {
+    componentDidMount() {
         fetch('https://api.mika.house/latest/3')
             .then(res => res.json())
             .then(data => {
@@ -39,14 +40,9 @@ export default class Home extends Component {
                     i = NormalizePostSummary(i)
                 });
                 this.setState({ posts: data });
-            });
+            })
+            .finally(() => ShowCards());
 
         document.title = 'Mika House Web Development';
-    }
-
-    componentDidMount() {
-        setTimeout(() => {
-            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
-        }, 300);
     }
 }

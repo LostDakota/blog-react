@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ShowCards from '../helpers/show-cards';
 
 const FullWidth = styled.div`
     background-color: white;
@@ -7,6 +8,8 @@ const FullWidth = styled.div`
     box-shadow: 0 5px 5px rgba(0, 0, 0, .05);
     border-radius: 3px;
     grid-column: 1 / -1;
+    opacity: 0;
+    transition: .5s ease-in-out;
 `;
 
 const bioPicStyle = {
@@ -84,9 +87,7 @@ class About extends Component {
     componentDidMount() {
         document.title = 'About';
 
-        setTimeout(() => {
-            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
-        }, 300);
+        ShowCards();
     }
 }
 

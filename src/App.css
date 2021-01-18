@@ -13,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f1f2f2;
-  color: #333;
+  color: #3F3F3F;
 }
 
 #root {
@@ -68,7 +68,9 @@ img {
 }
 
 pre {
+  padding: 1rem;
   margin-bottom: 1rem;
+  border: 1px solid gray;
 }
 
 p {

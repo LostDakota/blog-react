@@ -29,7 +29,7 @@ export default class Blog extends Component {
         )
     }
 
-    componentWillMount() {
+    componentDidMount() {
         let base = 'https://api.mika.house';
 
         const script = document.createElement('link');
@@ -52,12 +52,10 @@ export default class Blog extends Component {
             .then(data => {
                 data.forEach(post => post = NormalizePostSummary(post));
                 this.setState({ posts: data });
-            });        
-    }
 
-    componentDidMount() {
-        setTimeout(() => {
-            [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
-        }, 300);
+                setTimeout(() => {
+                    [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
+                }, 300);
+            });
     }
 }
