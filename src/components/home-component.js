@@ -39,10 +39,13 @@ export default class Home extends Component {
                 data.forEach(i => {
                     i = NormalizePostSummary(i)
                 });
-                this.setState({ posts: data });
-            })
-            .finally(() => ShowCards());
+                this.setState({ posts: data });                
+            });
 
         document.title = 'Mika House Web Development';
+    }
+
+    componentDidUpdate() {
+        ShowCards();
     }
 }

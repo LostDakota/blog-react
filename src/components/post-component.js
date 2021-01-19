@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NormalizePostSummary from '../helpers/normalization';
-import ShowCards from '../helpers/global-scripts';
+import ShowCards from '../helpers/show-cards';
 
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -52,9 +52,9 @@ export default class Post extends Component {
             .then(res => res.json())
             .then(data => {
                 document.title = data.title;
-                this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
-                ShowCards();
-            });
+                this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });                
+            })
+            .finally(() => ShowCards());
     }
 
     componentDidUpdate() {

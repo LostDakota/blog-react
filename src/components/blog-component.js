@@ -1,5 +1,6 @@
 import React, { Component, lazy } from 'react';
 import NormalizePostSummary from '../helpers/normalization';
+import ShowCards from '../helpers/show-cards';
 
 const PostCard = lazy(() => import('./post-summary-component'));
 
@@ -51,11 +52,8 @@ export default class Blog extends Component {
             .then(res => res.json())
             .then(data => {
                 data.forEach(post => post = NormalizePostSummary(post));
-                this.setState({ posts: data });
-
-                setTimeout(() => {
-                    [...document.getElementsByClassName('card')].forEach(card => card.style.opacity = "1");
-                }, 300);
-            });
+                this.setState({ posts: data });                
+            })
+            .finally(() => ShowCards());
     }
 }
