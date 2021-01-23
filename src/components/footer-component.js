@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
     grid-column: 1 / -1;
     position: relative;
     min-height: 61px;
-    opacity: 0;
+    display: none;
 `;
 
 const StyledCopy = styled.div`
@@ -76,7 +76,7 @@ class Footer extends Component {
 
     componentDidMount() {
         Global();
-        document.getElementById('footer').style.opacity = '1';
+        setTimeout(() => document.getElementById('footer').style.display = 'block', 600);
     }
 }
 
