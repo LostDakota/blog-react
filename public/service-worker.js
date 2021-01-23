@@ -6,8 +6,7 @@ self.addEventListener('fetch', function (event) {
             const response = await cache.match(event.request);
             var fetchPromise = fetch(event.request).then(function (networkResponse) {
                 if(shouldCache(event.request.url)) {
-                    cache.put(event.request, networkResponse.clone())
-                        .catch(function (err) {});
+                    cache.put(event.request, networkResponse.clone());
                 }                
                 return networkResponse;
             });
