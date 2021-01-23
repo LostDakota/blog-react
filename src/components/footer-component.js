@@ -9,7 +9,8 @@ const StyledFooter = styled.footer`
     padding: .5rem 0;
     grid-column: 1 / -1;
     position: relative;
-    min-height: 61px
+    min-height: 61px;
+    opacity: 0;
 `;
 
 const StyledCopy = styled.div`
@@ -37,7 +38,7 @@ const year = new Date().getFullYear();
 class Footer extends Component {
     render() {
         return (
-            <StyledFooter>
+            <StyledFooter id='footer'>
                 <div className="container">
                     <StyledSocial>
                         <StyledSocialIcons>
@@ -75,6 +76,7 @@ class Footer extends Component {
 
     componentDidMount() {
         Global();
+        document.getElementById('footer').style.opacity = '1';
     }
 }
 
