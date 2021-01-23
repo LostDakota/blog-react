@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
     padding: .5rem 0;
     grid-column: 1 / -1;
     position: relative;
+    min-height: 61px
 `;
 
 const StyledCopy = styled.div`
