@@ -118,5 +118,6 @@ p {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  filter: opacity(.5);
+  filter: invert(50%);
+  cursor: pointer;
 }

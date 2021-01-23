@@ -32,14 +32,16 @@ export default class Post extends Component {
                         <div dangerouslySetInnerHTML={{ __html: this.state.post.raw }}></div>
                         {this.state.tags.map((tag, index) => {
                             return (<a key={index} href={`/blog/${tag}`}>
-                                    <div key={index} className="tag">                                        
-                                        <svg alt="Tag" width="10" height="10">
-                                            <use href="/icons/sprite.svg#tag"></use>
-                                        </svg> {tag}
-                                    </div>
+                                <div key={index} className="tag">
+                                    <svg alt="Tag" width="10" height="10">
+                                        <use href="/icons/sprite.svg#tag"></use>
+                                    </svg> {tag}
+                                </div>
                             </a>);
                         })}
                     </div>
+                    <div className="full-width-card card" id="disqus_thread"></div>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered byDisqus.</a></noscript>
                 </div>
             </StyledPost>
         )
@@ -52,9 +54,12 @@ export default class Post extends Component {
             .then(res => res.json())
             .then(data => {
                 document.title = data.title;
-                this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });                
+                this.setState({ post: { ...NormalizePostSummary(data) }, tags: [...data.tags] });
             })
-            .finally(() => ShowCards());
+            .finally(() => {
+                ShowCards();
+                this.loadDisqus();
+            });
     }
 
     componentDidUpdate() {
@@ -63,4 +68,17 @@ export default class Post extends Component {
     }
 
     highlight = () => document.querySelectorAll('pre').forEach(node => hljs.highlightBlock(node));
+
+    loadDisqus() {
+        setTimeout(() => {
+          var d = document, s = d.createElement('script');
+    
+              s.src = '//mika-house.disqus.com/embed.js';
+    
+              s.setAttribute('data-timestamp', new Date().toString());
+              if (document.querySelector('#disqus_thread')) {
+                (d.head || d.body).appendChild(s);
+              }
+        }, 600);
+      }
 }

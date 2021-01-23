@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import ShowCards from '../helpers/show-cards';
+
+const DefaultCard = lazy(() => import('./default-card-component'));
 
 export default class Contact extends Component {
     render() {
         return (
-            <div>
-                <div className="container">
-                    <div className="full-width-card card">
-                        <h2>Contact Me</h2>
-                        <p>You can contact me at <a href="mailto:drew@mika.house">drew@mika.house</a> or any of the social links below.</p>
-                    </div>
-                </div>
+            <div className="container">
+                <DefaultCard title='Contact Me' copy='<p>You can contact me at <a href="mailto:drew@mika.house">drew@mika.house</a> or any of the social links below.</p><b style="opacity: 0">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</b>'>
+                </DefaultCard>                
             </div>
         )
     }
